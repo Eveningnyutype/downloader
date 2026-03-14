@@ -97,5 +97,8 @@ func main() {
 	http.HandleFunc("/download", downloadHandler)
 	http.HandleFunc("/stats", statsHandler)
 
-	http.ListenAndServe(":"+port, nil)
+	err := http.ListenAndServe(":"+port, nil)
+	if err != nil {
+		panic(err)
+	}
 }
